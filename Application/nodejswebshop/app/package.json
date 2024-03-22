@@ -1,0 +1,13 @@
+{
+  "name": "stocky",
+  "version": "1.0.0",
+  "description": "Une application Node.js",
+  "main": "app.mjs",
+  "scripts": {
+    "start": "nodemon app.mjs -L"
+  },
+  "dependencies": {
+    "express": "^4.19.1",
+    "nodemon": "^3.1.0"
+  }
+}
