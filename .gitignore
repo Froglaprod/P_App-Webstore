@@ -1,2 +1,2 @@
-node_modules
-.db/mock-users.mjs
+node_modules/
+app/src/html/mock-users.mjs
