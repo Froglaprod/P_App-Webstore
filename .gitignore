@@ -1,2 +1,3 @@
 node_modules/
-app/src/html/mock-users.mjs
+**/mock-users.mjs
+Application/nodejswebshop/app/src/db/mock-users.mjs
