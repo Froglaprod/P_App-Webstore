@@ -45,6 +45,8 @@ routeAuth.post('/', connectToDb, async (req, res) => {
                 // Signer et renvoye le token
                 const token = jwt.sign({ username: username }, SECRET_KEY, { algorithm: 'HS256', expiresIn: '1h' });
                 res.status(200).json({ token: token });
+                //Stock le jeton
+                res.json({ token: token });
             }
             else {
                 res.status(401).json({ error: "Utilisateur ou mot de passe inccorect" });

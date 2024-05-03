@@ -1,7 +1,8 @@
 import express from "express";
 import routeAuth from "./src/routes/Auth.mjs";
 import routeCreateUser from "./src/routes/CreateUsers.mjs";
-
+import routeProfil
+ from "./src/routes/UsersProfil.mjs";
 const app = express();
 const port = 8080;
 
@@ -13,8 +14,9 @@ app.get("/", (req, res) => {
 app.use(express.json());
 
 // Les routes
-app.use('/auth', routeAuth);
+app.use('/login', routeAuth);
 app.use('/create', routeCreateUser);
+app.use('/users', routeCreateUser);
 
 // Démarrage du serveur
 app.listen(port, () => {
