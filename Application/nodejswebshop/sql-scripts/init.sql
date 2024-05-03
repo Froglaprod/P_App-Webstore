@@ -14,18 +14,13 @@ DROP TABLE IF EXISTS `t_users`;
 CREATE TABLE `t_users` (
   `idUser` int NOT NULL AUTO_INCREMENT,
   `useName` varchar(255) NOT NULL,
-  `useFirst_Name` varchar(255) NOT NULL,
   `usePassword` varchar(255) NOT NULL,
-  `usePseudo` varchar(255) NOT NULL,
-  `useEmail` varchar(255) NOT NULL,
-  `isAdmin` BOOLEAN NOT NULL DEFAULT FALSE,
   `salt` varchar(255) NOT NULL,
   PRIMARY KEY (`idUser`),
   UNIQUE KEY `idx_unique_name` (`useName`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-INSERT INTO `t_users` (`useName`, `useFirst_Name`, `usePassword`, `usePseudo`, `useEmail`, `isAdmin`, `salt`) VALUES
-('Boule', 'John', '1234', 'john_boul', 'john@gmail.com', 'true', 'john123', 'weaeew');
+
 
 COMMIT;
 
