@@ -1,9 +1,21 @@
 import express from "express";
 import jwt from "jsonwebtoken";
-import SECRET_KEY from "../db/Secret_key.mjs";
 import { connectToDatabase } from "../db/mysql.mjs";
 import { hashPassword } from "../routes/CreateUsers.mjs";
+import { fileURLToPath } from 'url';
+import fs from "fs";
+import path from "path";
 
+//Prend le répertoire courant et permet d'utilisser dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
+//Chemin de la private key
+const privateKeyPath = path.join(__dirname, '../keys/privkey.pem');
+
+//Lecture du fichier
+const PRIVATE_KEY = fs.readFileSync(privateKeyPath, 'utf8');
 
 //Permet de pouvoir utiliser les routes d'express
 const routeAuth = express.Router();
@@ -43,10 +55,8 @@ routeAuth.post('/', connectToDb, async (req, res) => {
             //Vérification du mot de passe
             if (user.usePassword === hashedPassword) {
                 // Signer et renvoye le token
-                const token = jwt.sign({ username: username }, SECRET_KEY, { algorithm: 'HS256', expiresIn: '1h' });
+                const token = jwt.sign({ username: username }, PRIVATE_KEY, { algorithm: 'RS256', expiresIn: '1h' });
                 res.status(200).json({ token: token });
-                //Stock le jeton
-                res.json({ token: token });
             }
             else {
                 res.status(401).json({ error: "Utilisateur ou mot de passe inccorect" });
