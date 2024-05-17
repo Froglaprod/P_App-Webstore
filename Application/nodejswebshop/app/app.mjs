@@ -14,9 +14,9 @@ const __dirname = path.dirname(__filename);
 
 
 //Chemin du certificat
-const certificatPath = path.join(__dirname, '../keys/server.crt');
+const certificatPath = path.join(__dirname, '/src/keys/server.crt');
 //Chemin de la private key
-const privateKeyPath = path.join(__dirname, '../keys/privkey.pem');
+const privateKeyPath = path.join(__dirname, '/src/keys/privkey.pem');
 
 //Lecture du fichier
 const CERTIFICAT = fs.readFileSync(certificatPath, 'utf8');
