@@ -47,5 +47,5 @@ const server = https.createServer({
 
 // Démarrage du serveur
 server.listen(port, () => {
-    console.log(`Le site web tourne sur le port http://localhost:${port}`);
+    console.log(`Le site web tourne sur le port https://localhost:${port}`);
 });
